@@ -8,9 +8,13 @@ export const People = props => {
 	const params = useParams();
 
 	return (
-		<div className="jumbotron">
+		<div className="container">
 			<h1>People</h1>
+			<Link to="/">
+				<button className="btn btn-primary">Back home</button>
+			</Link>
 		</div>
+		
 	);
 };
 
