@@ -13,15 +13,15 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Star Wars APP</a>
+        <a className="navbar-brand" href="/">Star Wars APP</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             {
-              links.map(link=> (
-                <li className="nav-item">
+              links.map((link, index) => (
+                <li key={index} className="nav-item">
               <Link className="nav-link" to = {link.link}>{link.text}</Link>
             </li>
               ))

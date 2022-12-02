@@ -6,11 +6,9 @@ import { Context } from "../store/appContext";
 
 export const Vehicles = props => {
     return (
-        <div className="container">
+        <div className="container text-center mt-5">
         <h1>Vehicles</h1>
-        <Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+        
             </div>
     )
 }

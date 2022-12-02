@@ -9,11 +9,9 @@ export const Films = props => {
 	const params = useParams()
 
 	return (
-		<div className="container">
+		<div className="container text-center mt-5">
+			<h1>Films</h1>
 			
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
 		</div>
 	);
 };
