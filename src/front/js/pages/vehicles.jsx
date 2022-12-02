@@ -1,13 +1,24 @@
 import React, {useState, useEffect, useContext} from "react";
-import { Link, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
 
-export const Vehicles = props => {
+export const Vehicles = () => {
+    const {store, actions } = useContext(Context)
+    useEffect (() => { }, [])
+
     return (
-        <div className="container text-center mt-5">
+        <div className="container">
         <h1>Vehicles</h1>
+
+        <button className="btn btn-success" onClick={() => actions.getVehicles()}>
+            Cargar Planetas
+        </button>
+        <ul>
+            {store.vehicles.map((vehicle, index) =>(
+                <li key={index}>{vehicle.name}</li>
+            ))}
+        </ul>
         
             </div>
     )

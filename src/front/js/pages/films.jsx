@@ -1,17 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
-import propTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
-
 import { Context } from "../store/appContext";
 
-export const Films = props => {
+export const Films = () => {
 	const { store, actions } = useContext(Context);
-	const params = useParams()
+	useEffect(() => { }, [])
 
 	return (
-		<div className="container text-center mt-5">
+		<div className="container">
 			<h1>Films</h1>
-			
+			<button className="btn btn-success" onClick={() => actions.getFilms()}>
+				Cargar Peliculas
+			</button>
+			<ul>
+				{store.films.map((film, index) => (
+					<li key={index}>{film.name}</li>
+				))}
+			</ul>
+
 		</div>
 	);
 };

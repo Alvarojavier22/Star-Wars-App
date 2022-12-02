@@ -9,7 +9,7 @@ export const People = () => {
 	}, [])
 
 	return (
-		<div className="container text-center mt-5">
+		<div className="container">
 			<h1>People</h1>
 			<button className="btn btn-success" onClick={() => actions.getPeople()}>
 				Cargar Personas

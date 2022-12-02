@@ -5,9 +5,7 @@ import { Context } from "../store/appContext";
 
 export const Planets = () => {
     const {store, actions } = useContext(Context)
-    useEffect (() => {
-
-    }, [])
+    useEffect (() => { }, [])
 
     return (
         <div className="container">

@@ -1,13 +1,23 @@
 import React, {useEffect, useState, useContext} from "react";
-import { Link, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
 
-export const Species = props => {
+export const Species = () => {
+    const { store, actions } = useContext(Context);
+	useEffect(() => { }, [])
+
     return (
-        <div className="container text-center mt-5">
+        <div className="container">
         <h1>Species</h1>
+        <button className="btn btn-success" onClick={() => actions.getSpecies()}>
+				Cargar Species
+			</button>
+			<ul>
+				{store.species.map((species, index) => (
+					<li key={index}>{species.name}</li>
+				))}
+			</ul>
        
             </div>
     )
