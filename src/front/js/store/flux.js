@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       vehicles: [],
     },
     actions: {
-      getStarWars: async (resource) => {
+      getStarWars: async (resource, pagination = {}) => {
         let resp = await fetch("https://swapi.tech/api/" + resource)
         if (!resp.ok) {
           console.error(resp.status + ": " + resp.statusText)
