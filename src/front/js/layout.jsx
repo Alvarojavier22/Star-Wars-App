@@ -23,7 +23,7 @@ import { VehicleDetail } from "./pages/vehicleDetail.jsx";
 
 //create your first component
 const Layout = () => {
- 
+
   const basename = process.env.BASENAME || "";
 
   return (
