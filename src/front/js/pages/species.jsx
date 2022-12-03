@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 export const Species = () => {
     const { store, actions } = useContext(Context);
-	useEffect(() => { actions.getSpecies() }, [])
+	useEffect(() => { actions.getStarWars("species") }, [])
 
     return (
         <div className="container">

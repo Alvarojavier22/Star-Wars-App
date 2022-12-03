@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 export const Vehicles = () => {
     const {store, actions } = useContext(Context)
-    useEffect (() => { actions.getVehicles() }, [])
+    useEffect (() => { actions.getStarWars("vehicles") }, [])
 
     return (
         <div className="container">

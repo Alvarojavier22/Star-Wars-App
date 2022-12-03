@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 
 export const Films = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => { actions.getFilms() }, [])
+	useEffect(() => { actions.getStarWars("films") }, [])
 
 	return (
 		<div className="container">
@@ -11,7 +11,7 @@ export const Films = () => {
 			
 			<ul>
 				{store.films.map((film, index) => (
-					<li key={index}>{film.title}</li>
+					<li key={index}>{film.properties.title}</li>
 				))}
 			</ul>
 
