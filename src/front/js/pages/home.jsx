@@ -6,11 +6,11 @@ import { Link, useParams } from "react-router-dom";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	useEffect (() => {}, [])
 
 	return (
-		<div className="text-center mt-5">
+		<div className="container">
 			<h1>STAR WARS</h1>
-			
 			
 		</div>
 	);

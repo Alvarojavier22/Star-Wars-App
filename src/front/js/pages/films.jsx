@@ -3,17 +3,15 @@ import { Context } from "../store/appContext";
 
 export const Films = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => { }, [])
+	useEffect(() => { actions.getFilms() }, [])
 
 	return (
 		<div className="container">
 			<h1>Films</h1>
-			<button className="btn btn-success" onClick={() => actions.getFilms()}>
-				Cargar Peliculas
-			</button>
+			
 			<ul>
 				{store.films.map((film, index) => (
-					<li key={index}>{film.name}</li>
+					<li key={index}>{film.title}</li>
 				))}
 			</ul>
 

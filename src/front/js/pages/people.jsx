@@ -4,16 +4,12 @@ import { Context } from "../store/appContext";
 
 export const People = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-
-	}, [])
+	useEffect(() => { actions.getPeople() }, [])
 
 	return (
 		<div className="container">
 			<h1>People</h1>
-			<button className="btn btn-success" onClick={() => actions.getPeople()}>
-				Cargar Personas
-			</button>
+			
 			<ul>
 				{store.people.map((people, index) => (
 					<li key={index}>{people.name}</li>

@@ -5,14 +5,12 @@ import { Context } from "../store/appContext";
 
 export const Species = () => {
     const { store, actions } = useContext(Context);
-	useEffect(() => { }, [])
+	useEffect(() => { actions.getSpecies() }, [])
 
     return (
         <div className="container">
         <h1>Species</h1>
-        <button className="btn btn-success" onClick={() => actions.getSpecies()}>
-				Cargar Species
-			</button>
+        
 			<ul>
 				{store.species.map((species, index) => (
 					<li key={index}>{species.name}</li>
