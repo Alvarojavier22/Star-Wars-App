@@ -29,7 +29,7 @@ export const Planets = () => {
 			<div className="row">
 				<div className="col">
 					<Pagination
-					pages={6}
+					pages={props.pages}
 					currentPage= {1}
 					type= {"planets"}
 					/>

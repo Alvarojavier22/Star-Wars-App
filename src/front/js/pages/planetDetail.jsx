@@ -7,9 +7,8 @@ export const PlanetDetail = () => {
     const { store, actions } = useContext(Context);
     const {planetid} = useParams();
     return (
-        <div className="container text-center mt-5">
-        <h1>Planets</h1>
-        <h2>Planet #{planetid}</h2>
+        <div className="container">
+        <h2 className="m-3">Planet #{planetid}</h2>
         </div>
     )
 }

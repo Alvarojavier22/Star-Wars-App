@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import CardList from "../component/cardList.jsx";
-
+import Pagination from "../component/pagination.jsx";
 
 export const People = () => {
 	const { store, actions } = useContext(Context);
@@ -25,9 +25,16 @@ export const People = () => {
 						</div>
 					))}
 				</div>
+				<div className="row">
+					<div className="col">
+						<Pagination
+							pages={6}
+							currentPage={1}
+							type={"people"}
+						/>
+					</div>
+				</div>
 			</div>
-
-
 		</div>
 
 	);

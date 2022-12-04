@@ -7,9 +7,8 @@ export const SpecieDetail = () => {
     const { store, actions } = useContext(Context);
     const {specieid} = useParams();
     return (
-        <div className="container text-center mt-5">
-        <h1>Species</h1>
-        <h2>Specie #{specieid}</h2>
+        <div className="container">
+        <h2 className="m-3">Specie #{specieid}</h2>
         </div>
     )
 }
