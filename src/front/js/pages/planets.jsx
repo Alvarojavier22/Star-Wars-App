@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 import Pagination from "../component/pagination.jsx";
 
 
-export const Planets = () => {
+export const Planets = (props) => {
 	const { store, actions } = useContext(Context)
 	useEffect(() => { actions.getStarWars("planets") }, [])
 
@@ -29,9 +29,9 @@ export const Planets = () => {
 			<div className="row">
 				<div className="col">
 					<Pagination
-					pages={props.pages}
-					currentPage= {1}
-					type= {"planets"}
+						pages={props.pages}
+						currentPage={props.currentPage}
+						type={"planets"}
 					/>
 				</div>
 			</div>

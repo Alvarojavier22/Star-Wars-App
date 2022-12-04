@@ -3,7 +3,7 @@ import CardList from "../component/cardList.jsx";
 import { Context } from "../store/appContext";
 import Pagination from "../component/pagination.jsx";
 
-export const Vehicles = () => {
+export const Vehicles = (vehicles) => {
     const { store, actions } = useContext(Context)
     useEffect(() => { actions.getStarWars("vehicles") }, [])
 

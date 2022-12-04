@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 import Pagination from "../component/pagination.jsx";
 
 
-export const Species = () => {
+export const Species = (props) => {
     const { store, actions } = useContext(Context);
     useEffect(() => { actions.getStarWars("species") }, [])
 

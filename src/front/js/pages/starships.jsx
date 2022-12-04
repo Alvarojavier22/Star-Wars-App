@@ -3,7 +3,7 @@ import CardList from "../component/cardList.jsx";
 import { Context } from "../store/appContext";
 import Pagination from "../component/pagination.jsx";
 
-export const Starships = () => {
+export const Starships = (props) => {
     const { store, actions } = useContext(Context)
     useEffect(() => { actions.getStarWars("starships") }, [])
 
