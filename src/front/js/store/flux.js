@@ -1,8 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      planets: [],
       people: [],
+      planets: [],
       films: [],
       species: [],
       starships: [],
@@ -10,7 +10,11 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       getStarWars: async (resource, pagination = {}) => {
-        let resp = await fetch("https://swapi.tech/api/" + resource)
+        let params = ""
+        if (!! pagination.page) {
+          params = `?page= ${pagination.page}&limit=${pagination.limit || 10}`
+        }
+        let resp = await fetch("https://swapi.tech/api/" + resource + params)
         if (!resp.ok) {
           console.error(resp.status + ": " + resp.statusText)
           return

@@ -9,7 +9,7 @@ export const Vehicles = () => {
 
     return (
         <div className="container">
-            <h1>Vehicles</h1>
+            <h1 className="m-3">Vehicles</h1>
 
             <div className="row">
                 {store.vehicles.map((vehicles, index) => (

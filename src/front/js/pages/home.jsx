@@ -10,7 +10,7 @@ export const Home = () => {
 
 	return (
 		<div className="container">
-			<h1>STAR WARS</h1>
+			<h1 className="m-3">STAR WARS</h1>
 			
 		</div>
 	);

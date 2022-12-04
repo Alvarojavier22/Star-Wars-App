@@ -10,7 +10,7 @@ export const Starships = () => {
 
     return (
         <div className="container">
-            <h1>Starships</h1>
+            <h1 className="m-3">Starships</h1>
 
             <div className="row">
                 {store.starships.map((starships, index) => (

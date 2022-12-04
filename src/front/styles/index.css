@@ -2,12 +2,13 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 body {
-    background-image: url("https://imgs.search.brave.com/hoQfBMNjr8vUUgBv3Jzb5UIpsheL4cD4RXiC0Ij0Ovw/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC43/alVGUy1aaVpXVC1V/eUk1U0YxT0d3SGFF/SyZwaWQ9QXBp");
-    background-size:contain;
+    background-image: url("https://imgs.search.brave.com/EGyK0NZqp6Vom-ladWy5Y-PkhjenHOq4lwLrfPvJEt0/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC53/YTZvalkzMlBrc1ZD/UXNnYmt3djhRSGFF/SyZwaWQ9QXBp");
+    background-size: contain;
 }
 h1 {
     color: gray;
 }
 .card {
     height: auto;
+    width: auto;
 }

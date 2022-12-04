@@ -11,7 +11,7 @@ export const Navbar = () => {
     {text: "Vehicles", link: "/vehicles"}
   ])
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light">
+    <nav className="navbar navbar-expand-md navbar-light bg-secondary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">Star Wars</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@ export const Navbar = () => {
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown link
               </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <ul className="dropdown-menu bg-secondary" aria-labelledby="navbarDropdownMenuLink">
                 <li><a className="dropdown-item" href="#">Action</a></li>
                 <li><a className="dropdown-item" href="#">Another action</a></li>
                 <li><a className="dropdown-item" href="#">Something else here</a></li>

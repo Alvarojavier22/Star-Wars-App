@@ -9,7 +9,7 @@ export const People = () => {
 
 	return (
 		<div className="container">
-			<h1>People</h1>
+			<h1 className="m-3">People</h1>
 
 			<div className="container">
 				<div className="row">

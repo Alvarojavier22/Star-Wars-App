@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import CardList from "../component/cardList.jsx"
 import { Context } from "../store/appContext";
+import Pagination from "../component/pagination.jsx";
 
 
 export const Planets = () => {
@@ -9,7 +10,7 @@ export const Planets = () => {
 
 	return (
 		<div className="container">
-			<h1>Planets</h1>
+			<h1 className="m-3">Planets</h1>
 			<div className="container">
 				<div className="row">
 					{store.planets.map((planet, index) => (
@@ -25,7 +26,15 @@ export const Planets = () => {
 					))}
 				</div>
 			</div>
-
+			<div className="row">
+				<div className="col">
+					<Pagination
+					pages={6}
+					currentPage= {1}
+					type= {"planets"}
+					/>
+				</div>
+			</div>
 		</div>
 	)
 }
