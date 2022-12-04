@@ -1,18 +1,18 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import CardList from "../component/cardList.jsx"
 import { Context } from "../store/appContext";
 
 
 export const Planets = () => {
-    const {store, actions } = useContext(Context)
-    useEffect (() => { actions.getStarWars("planets") }, [])
+	const { store, actions } = useContext(Context)
+	useEffect(() => { actions.getStarWars("planets") }, [])
 
-    return (
-        <div className="container">
-        <h1>Planets</h1>
-        <div className="container">
+	return (
+		<div className="container">
+			<h1>Planets</h1>
+			<div className="container">
 				<div className="row">
-					{store.planets.map((planet, index)=> (
+					{store.planets.map((planet, index) => (
 						<div key={planet.uid} className="col col-md-4">
 							<CardList
 								id={planet.uid}
@@ -25,7 +25,7 @@ export const Planets = () => {
 					))}
 				</div>
 			</div>
-        
-        </div>
-    )
+
+		</div>
+	)
 }

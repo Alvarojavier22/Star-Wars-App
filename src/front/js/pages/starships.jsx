@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-
+import React, { useEffect, useContext } from "react";
+import CardList from "../component/cardList.jsx";
 import { Context } from "../store/appContext";
 
 
 export const Starships = () => {
-    const {store, actions } = useContext(Context)
+    const { store, actions } = useContext(Context)
     useEffect(() => { actions.getStarWars("starships") }, [])
 
 
@@ -12,11 +12,20 @@ export const Starships = () => {
         <div className="container">
             <h1>Starships</h1>
 
-            <ul>
-                {store.starships.map((starship, index) => (
-                    <li key={index}>{starship.name}</li>
+            <div className="row">
+                {store.starships.map((starships, index) => (
+                    <div key={starships.uid} className="col col-md-4">
+                        <CardList
+                            id={starships.uid}
+                            type="starships"
+                            title={starships.name}
+                            text={starships.description}
+                            img={`https://starwars-visualguide.com/assets/img/starships/${starships.uid}.jpg`}
+                        />
+                    </div>
                 ))}
-            </ul>
+            </div>
+
         </div >
     )
 }

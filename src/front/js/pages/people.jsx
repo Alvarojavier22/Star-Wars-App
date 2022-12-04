@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
+import CardList from "../component/cardList.jsx";
 
 
 export const People = () => {
@@ -9,12 +10,24 @@ export const People = () => {
 	return (
 		<div className="container">
 			<h1>People</h1>
-			
-			<ul>
-				{store.people.map((people, index) => (
-					<li key={index}>{people.name}</li>
-				))}
-			</ul>
+
+			<div className="container">
+				<div className="row">
+					{store.people.map((people, index) => (
+						<div key={people.uid} className="col col-md-4">
+							<CardList
+								id={people.uid}
+								type="people"
+								title={people.name}
+								text={people.description}
+								img={`https://starwars-visualguide.com/assets/img/characters/${people.uid}.jpg`}
+							/>
+						</div>
+					))}
+				</div>
+			</div>
+
+
 		</div>
 
 	);
