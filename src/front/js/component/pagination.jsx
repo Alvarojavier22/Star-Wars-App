@@ -5,7 +5,7 @@ const Pagination = (props) => {
 
     return (
         <nav>
-            <ul className="pagination bg-transparent m-3">
+            <ul className="pagination pagination-sm m-3">
                 <li className={"page-item" + props.currentPage == 1? " disabled" : ""}>
                     <a className="page-link">Previous</a>
                 </li>
