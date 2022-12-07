@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CardList from "../component/cardList.jsx"
 import { Context } from "../store/appContext";
 import Pagination from "../component/pagination.jsx";
@@ -7,11 +7,22 @@ import { useSearchParams } from "react-router-dom";
 export const Planets = (props) => {
 	const { store, actions } = useContext(Context)
 	const [searchParams, setSearchParams] = useSearchParams();
-	useEffect(() => { actions.getStarWars("planets") }, [])
+	const [pages, setPages] = useState(0)
+	const [records, setRecords] = useState(0)
+
+	useEffect(() => { 
+		 actions.getStarWars("planets").then((resp => {
+	if (resp){
+		setPages(resp.pages)
+		setRecords(resp.records)
+	}}))
+	console.log(searchParams)
+}, [])
 
 	return (
 		<div className="container">
 			<h1 className="m-3">Planets {JSON.stringify(searchParams.get("page"))}</h1>
+			<h5>Se han encontrado ${records} planetas</h5>
 			<div className="container">
 				<div className="row">
 					{store.planets.map((planet, index) => (
@@ -30,8 +41,8 @@ export const Planets = (props) => {
 			<div className="row">
 				<div className="col">
 					<Pagination
-						pages={6}
-						currentPage={1}
+						pages={pages}
+						currentPage={searchParams.get("page") || "1"}
 						type={"planets"}
 					/>
 				</div>

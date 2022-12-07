@@ -23,6 +23,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         let newStore = {...getStore()}
         newStore[resource] = data.result || data.results
         setStore(newStore)
+        return {
+          records: data.total_records || null,
+          pages: data.total_pages || null
+        }
       },
     },
   };

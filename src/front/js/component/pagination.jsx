@@ -7,7 +7,7 @@ const Pagination = (props) => {
         <nav>
             <ul className="pagination pagination-sm m-3">
                 <li className={"page-item" + props.currentPage == 1? " disabled" : ""}>
-                    <a className="page-link">Previous</a>
+                    <Link className="page-link" to={`/${props.type}`}>Previous</Link>
                 </li>
                 {Array(props.pages).fill("").map((val, page) => (
                     <li key={page} 
