@@ -10,22 +10,33 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       getStarWars: async (resource, pagination = {}) => {
-        let params = ""
-        if (!! pagination.page) {
-          params = `?page= ${pagination.page}&limit=${pagination.limit || 10}`
+        let params = "";
+        if (!!pagination.page) {
+          params = `?page= ${pagination.page}&limit=${pagination.limit || 10}`;
         }
-        let resp = await fetch("https://swapi.tech/api/" + resource + params)
+        let resp = await fetch("https://swapi.tech/api/" + resource + params);
         if (!resp.ok) {
-          console.error(resp.status + ": " + resp.statusText)
-          return
+          console.error(resp.status + ": " + resp.statusText);
+          return;
         }
         let data = await resp.json();
-        let newStore = {...getStore()}
-        newStore[resource] = data.result || data.results
-        setStore(newStore)
+        let newStore = { ...getStore() };
+        newStore[resource] = data.result || data.results;
+        setStore(newStore);
         return {
           records: data.total_records || null,
-          pages: data.total_pages || null
+          pages: data.total_pages || null,
+        };
+      },
+      getStarWarsDetail: async (resource, id) => {
+        let resp = await fetch(`https://swapi.tech/api/${resource}/${id}`);
+        if(!resp.ok) {
+          console.error(`Error: ${resp.status} : ${resp.statusText}`)
+          return
+        }
+        let data = await resp.json()
+        return {
+          ...data.result.properties
         }
       },
     },

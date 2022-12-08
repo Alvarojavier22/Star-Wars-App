@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 import Pagination from "../component/pagination.jsx";
 import { useSearchParams } from "react-router-dom";
 
+
 export const Planets = (props) => {
 	const { store, actions } = useContext(Context)
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -31,7 +32,7 @@ export const Planets = (props) => {
 
 	return (
 		<div className="container">
-			<h1 className="m-3">Planets {JSON.stringify(searchParams.get("page"))}</h1>
+			<h1 className="m-3">Planets</h1>
 			<h5>Se han encontrado {records} planetas</h5>
 			<div className="container">
 				<div className="row">
