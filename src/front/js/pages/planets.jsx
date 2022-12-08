@@ -10,19 +10,29 @@ export const Planets = (props) => {
 	const [pages, setPages] = useState(0)
 	const [records, setRecords] = useState(0)
 
-	useEffect(() => { 
-		 actions.getStarWars("planets").then((resp => {
-	if (resp){
-		setPages(resp.pages)
-		setRecords(resp.records)
-	}}))
-	console.log(searchParams)
-}, [])
+	useEffect(() => {
+		actions.getStarWars("planets").then((resp) => {
+			if (resp) {
+				setPages(resp.pages)
+				setRecords(resp.records)
+			}
+		})
+		console.log(searchParams)
+	}, []);
+
+	useEffect(() => {
+		actions.getStarWars("planets",{page: searchParams.get("page")}).then((resp) => {
+			if (resp) {
+				setPages(resp.pages)
+				setRecords(resp.records)
+			}
+		})
+	}, [searchParams.get("page")]);
 
 	return (
 		<div className="container">
 			<h1 className="m-3">Planets {JSON.stringify(searchParams.get("page"))}</h1>
-			<h5>Se han encontrado ${records} planetas</h5>
+			<h5>Se han encontrado {records} planetas</h5>
 			<div className="container">
 				<div className="row">
 					{store.planets.map((planet, index) => (
