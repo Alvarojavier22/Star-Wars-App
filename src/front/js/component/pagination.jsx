@@ -11,7 +11,7 @@ const Pagination = (props) => {
                 <li className={"page-item" + props.currentPage == 1 ? " disabled" : ""}>
                     <Link
                         className="page-link"
-                        to={props.currentPage == 1 ? "#" : `/${props.type}? page = ${props.currentPage - 1}`}
+                        to={props.currentPage == 1 ? "#" : `/${props.type}?page=${props.currentPage - 1}`}
                     >
                         Previous
                     </Link>
@@ -32,7 +32,7 @@ const Pagination = (props) => {
                     className={"page-item" + props.currentPage == props.pages ? " disabled" : ""}>
                     <Link
                         className="page-link"
-                        to={props.currentPage == props.pages ? "#" : `/${props.type}?page=${props.currentPage + 1}`}
+                        to={props.currentPage == props.pages ? "#" : `/${props.type}?page=${parseInt(props.currentPage) + 1}`}
                     >
                         Next
                     </Link>

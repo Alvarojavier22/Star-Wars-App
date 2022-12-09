@@ -40,7 +40,7 @@ export const Planets = (props) => {
 						<div key={planet.uid} className="col col-md-4">
 							<CardList
 								id={planet.uid}
-								type="planet"
+								type="planets"
 								title={planet.name}
 								text={planet.description}
 								img={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`}

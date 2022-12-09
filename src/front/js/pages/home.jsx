@@ -24,7 +24,7 @@ export const Home = () => {
 			<h1 className="m-3">STAR WARS</h1>
 			<div className="container">
 				<div className="row">
-					<div class="card">
+					<div className="card">
 						<ul>
 							{
 								links.map((link, index) => (

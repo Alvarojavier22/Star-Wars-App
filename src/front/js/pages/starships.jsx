@@ -1,11 +1,34 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import CardList from "../component/cardList.jsx";
 import { Context } from "../store/appContext";
 import Pagination from "../component/pagination.jsx";
+import { useSearchParams } from "react-router-dom";
 
 export const Starships = (props) => {
     const { store, actions } = useContext(Context)
-    useEffect(() => { actions.getStarWars("starships") }, [])
+    const [searchParams, setSearchParams] = useSearchParams();
+	const [pages, setPages] = useState(0)
+	const [records, setRecords] = useState(0)
+
+    useEffect(() => {
+		actions.getStarWars("starships").then((resp) => {
+			if (resp) {
+				setPages(resp.pages)
+				setRecords(resp.records)
+			}
+		})
+		console.log(searchParams)
+	}, []);
+
+	useEffect(() => {
+		actions.getStarWars("starships", { page: searchParams.get("page") }).then((resp) => {
+			if (resp) {
+				setPages(resp.pages)
+				setRecords(resp.records)
+			}
+		})
+	}, [searchParams.get("page")]);
+
 
 
     return (
@@ -28,8 +51,8 @@ export const Starships = (props) => {
                 <div className="row">
                     <div className="col">
                         <Pagination
-                            pages={6}
-                            currentPage={1}
+                            pages={pages}
+                            currentPage={searchParams.get("page") || "1"}
                             type={"starships"}
                         />
                     </div>
