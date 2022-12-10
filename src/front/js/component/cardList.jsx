@@ -12,7 +12,11 @@ const CardList = (props) => {
     }
     function handleFavorites(data){
         let favoriteIndex = store.favorites.findIndex(fav => fav.link == data.link)
+        if (favoriteIndex == -1){
         actions.addFavorites(data);
+        }else {
+            actions.removeFavorites(favoriteIndex)
+        }
     }
 
     return (
