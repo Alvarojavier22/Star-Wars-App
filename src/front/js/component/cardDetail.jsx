@@ -2,11 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CardDetail = (props) => {
+
+
+    function imgError(e) {
+        console.error ("Error " + e.target.src)
+        e.target.src ="https://imgs.search.brave.com/H1LWG9TMMKGo9xvIUPyHx0QeVAACrIO5mxHI4-1OHQw/rs:fit:964:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5P/aU9nTTlaVDBCWXVz/OXVxSTVkRU5RSGFE/cCZwaWQ9QXBp"
+    }
+
     return (
         <div className="card mb-3 bg-secondary" style={{maxWidth: "540px"}}>
             <div className="row g-0">
                 <div className="col-md-4">
-                    <img src={props.img} className="img-fluid rounded-start" alt="..." />
+                    <img 
+                    src={props.img} 
+                    className="img-fluid rounded-start" 
+                    alt="..." 
+                    onError={ imgError}
+                    />
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
@@ -15,7 +27,7 @@ const CardDetail = (props) => {
                             {props.body}
                         </p>
                         <p className="card-text">
-                            <Link to = "#" className="btn btn-secondary">Return</Link>
+                            <Link to = {-1} className="btn btn-secondary">Return</Link>
                         </p>
                     </div>
                 </div>

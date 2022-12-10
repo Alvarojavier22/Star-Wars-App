@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       species: [],
       starships: [],
       vehicles: [],
+      favorites: [],
     },
     actions: {
       getStarWars: async (resource, pagination = {}) => {
@@ -39,6 +40,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           ...data.result.properties
         }
       },
+      addFavorites: (element) => {
+          let currentStore = getStore()
+          setStore({...currentStore,
+            favorites: [...currentStore.favorites, element]})
+      },
+      removeFavorites: (index) => {
+        let currentStore = getStore()
+        let newFavorites = [...currentStore.favorites]
+        newFavorites.splice(index, 1)
+        setStore ({
+          ...currentStore,
+          favorites: newFavorites
+        })
+      }
     },
   };
 };
