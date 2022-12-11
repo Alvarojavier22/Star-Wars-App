@@ -10,14 +10,7 @@ const CardList = (props) => {
         console.error("Error " + e.target.src)
         e.target.src = "https://imgs.search.brave.com/73728rvIlnABGuQhgqG5T4zo1_N0OEaRdkCx8vEqsYY/rs:fit:641:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC40/dlR0ZS1mR094LUg1/Q2dxek9jN0lBQUFB/QSZwaWQ9QXBp"
     }
-    function handleFavorites(data){
-        let favoriteIndex = store.favorites.findIndex(fav => fav.link == data.link)
-        if (favoriteIndex == -1){
-        actions.addFavorites(data);
-        }else {
-            actions.removeFavorites(favoriteIndex)
-        }
-    }
+    
 
     return (
         <div className="card mt-4 bg-secondary">
@@ -36,7 +29,9 @@ const CardList = (props) => {
                     className="btn btn-secondary">
                     More Details
                 </Link>
-                <button onClick={() => handleFavorites({
+                <button 
+                onClick={() => 
+                    actions.handleFavorites({
                     name: props.title,
                     link: `/${props.type}/${props.id}`,
                 })}

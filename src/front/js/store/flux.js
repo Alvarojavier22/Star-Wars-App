@@ -31,29 +31,34 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getStarWarsDetail: async (resource, id) => {
         let resp = await fetch(`https://swapi.tech/api/${resource}/${id}`);
-        if(!resp.ok) {
-          console.error(`Error: ${resp.status} : ${resp.statusText}`)
-          return
+        if (!resp.ok) {
+          console.error(`Error: ${resp.status} : ${resp.statusText}`);
+          return;
         }
-        let data = await resp.json()
+        let data = await resp.json();
         return {
-          ...data.result.properties
+          ...data.result.properties,
+        };
+      },
+      handleFavorites: (data) => {
+        let currentStore = getStore();
+        let favoriteIndex = currentStore.favorites.findIndex(
+          (fav) => fav.link == data.link
+        );
+        if (favoriteIndex == -1) {
+          setStore({
+            ...currentStore,
+            favorites: [...currentStore.favorites, data],
+          });
+        } else {
+          let newFavorites = [...currentStore.favorites];
+          newFavorites.splice(favoriteIndex, 1);
+          setStore({
+            ...currentStore,
+            favorites: newFavorites,
+          });
         }
       },
-      addFavorites: (element) => {
-          let currentStore = getStore()
-          setStore({...currentStore,
-            favorites: [...currentStore.favorites, element]})
-      },
-      removeFavorites: (index) => {
-        let currentStore = getStore()
-        let newFavorites = [...currentStore.favorites]
-        newFavorites.splice(index, 1)
-        setStore ({
-          ...currentStore,
-          favorites: newFavorites
-        })
-      }
     },
   };
 };
