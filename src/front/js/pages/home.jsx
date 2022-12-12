@@ -12,9 +12,9 @@ export const Home = () => {
 		<div className="container">
 			<h1 className="m-3">STAR WARS</h1>
 			<div className="container">
-				<div className="row">
+			<div className="row">
 					
-			</div>
+				</div>
 			</div>
 		</div>
 	);
