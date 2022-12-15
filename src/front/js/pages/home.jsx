@@ -10,23 +10,33 @@ export const Home = () => {
 	const [records, setRecords] = useState(0)
 
 	useEffect(() => {
-		actions.getStarWars("people", "planets").then((resp) => {
+		actions.getStarWars("people").then((resp) => {
 			if (resp) {
 				setPages(resp.pages)
 				setRecords(resp.records)
-			}
+				}
+				
 		})
+		actions.getStarWars("planets").then((resp) => {
+			if (resp) {
+				setPages(resp.pages)
+				setRecords(resp.records)
+				}
+				
+		})
+		console.log(store.planets)
 	}, [])
 
 	return (
 		<div className="text-center-mt-5">
 			<h1 className="m-3">STAR WARS</h1>
-			
+
 			<h5>People</h5>
 
 			<ul className="list-group-horizontal overflow-scroll d-flex"
 				style={{ overflowY: "hidden !important" }}>
 				{store.people.map((people, index) => (
+					index < 5 ?
 					<li key={people.uid} className="col col-md-4">
 						<CardList
 							id={people.uid}
@@ -36,6 +46,7 @@ export const Home = () => {
 							img={`https://starwars-visualguide.com/assets/img/characters/${people.uid}.jpg`}
 						/>
 					</li>
+					: null
 				))}
 			</ul>
 
@@ -44,6 +55,7 @@ export const Home = () => {
 
 			<ul className="list-group-horizontal overflow-scroll d-flex">
 				{store.planets.map((planet, index) => (
+					index < 5 ?
 					<li key={planet.uid} className="col col-md-4">
 						<CardList
 							id={planet.uid}
@@ -53,10 +65,11 @@ export const Home = () => {
 							img={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`}
 						/>
 					</li>
+					: null
 				))}
 
 			</ul>
-			</div>
+		</div>
 
-			);
+	);
 };
