@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import {Context} from "../store/appContext"
 import starImage from "../../img/starwars.png";
 
 export const Navbar = () => {
+  const {actions, store}=useContext(Context)
   const [links, setLinks] = useState([
     { text: "Planets", link: "/planets" },
     { text: "Films", link: "/films" },
@@ -32,17 +34,19 @@ export const Navbar = () => {
                 </li>
               ))
             }
-            <li className="nav-item dropdown ml-auto">
-              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Favorites
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Favorites {store.favorites.length}
               </a>
-              <ul className="dropdown-menu bg-secondary" aria-labelledby="navbarDropdownMenuLink">
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{ color: "green", backgroundColor: "black" }}>
+                {store.favorites.map(favorite => (
+                  <div className="d-flex">	<li className="dropdown-item" style={{ color: "green", backgroundColor: "black" }} key={favorite.index}>{favorite.name}</li>
+                    <button className="buttfav" onClick={() => actions.removeFavorites(favorite.index)}>Eliminar</button></div>
+                ))}
 
-                <li><a className="dropdown-item" href="#">FAV1</a></li>
-                <li><a className="dropdown-item" href="#">Another action</a></li>
-                <li><a className="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
+
           </ul>
         </div>
       </div>

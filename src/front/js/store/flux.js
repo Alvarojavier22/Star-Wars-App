@@ -40,25 +40,34 @@ const getState = ({ getStore, getActions, setStore }) => {
           ...data.result.properties,
         };
       },
-      handleFavorites: (data) => {
-        let currentStore = getStore();
-        let favoriteIndex = currentStore.favorites.findIndex(
-          (fav) => fav.link == data.link
-        );
-        if (favoriteIndex == -1) {
-          setStore({
-            ...currentStore,
-            favorites: [...currentStore.favorites, data],
-          });
-        } else {
-          let newFavorites = [...currentStore.favorites];
-          newFavorites.splice(favoriteIndex, 1);
-          setStore({
-            ...currentStore,
-            favorites: newFavorites,
-          });
-        }
-      },
+      addFavorites:(element)=>{
+				let currentStore=getStore()
+				setStore({...currentStore,
+					favorites:[...currentStore.favorites, element]
+				})
+			},
+
+			removeFavorites:(index)=>{
+				let currentStore=getStore()
+				let NewFavorites=[...currentStore.favorites]
+				NewFavorites.splice(index,1)
+				setStore({
+					...currentStore,
+					favorites:NewFavorites
+				})
+			},
+
+			handleFavorites:(data)=>{
+				let storeActions=getActions()
+				let favoriteIndex=getStore().favorites.findIndex(fav=>fav.link==data.link)
+				if (favoriteIndex==-1){
+				  storeActions.addFavorites(data)
+				}else{
+				  storeActions.removeFavorites(favoriteIndex)
+				}
+				
+			  },
+
     },
   };
 };

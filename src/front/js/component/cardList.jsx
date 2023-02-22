@@ -29,15 +29,7 @@ const CardList = (props) => {
                     className="btn btn-secondary">
                     More Details
                 </Link>
-                <button 
-                onClick={() => 
-                    actions.handleFavorites({
-                    name: props.title,
-                    link: `/${props.type}/${props.id}`,
-                })}
-                    className='btn-secondary'>
-                    <i className="bi bi-star"></i>
-                </button>
+                <button onClick={()=>actions.handleFavorites({name:props.title,link:`/${props.type}/${props.id}`})} className="btn btn-warning buttoncard"><i className="bi bi-star"></i></button>
             </div>
         </div>
     )
